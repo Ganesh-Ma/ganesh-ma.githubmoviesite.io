@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flop Movies</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background: url("https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?cs=srgb&dl=pexels-pixabay-235985.jpg&fm=jpg") no-repeat center center fixed;
+			background-size: cover;
+			font-family: Arial, sans-serif;
+			color: #141313;
+		}
+		h1 {
+			text-align: center;
+			font-size: 4em;
+			margin-top: 50px;
+		}
+		.movies {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 20px;
+			padding: 50px;
+		}
+		.movie {
+			background-color: rgba(139, 85, 85, 0.5);
+			padding: 20px;
+			border-radius: 10px;
+			display: flex;
+			align-items: center;
+		}
+		.movie img {
+			width: 200px;
+			height: 300px;
+			object-fit: cover;
+			border-radius: 10px;
+			margin-right: 20px;
+		}
+		.movie-title {
+			font-size: 2em;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		.movie-rating {
+			font-size: 1.5em;
+			font-style: italic;
+		}
+	</style>
+</head>
+<body>
+	<h1>Flop Movies</h1>
+	<div class="movies">
+		<div class="movie">
+			<img src="https://upload.wikimedia.org/wikipedia/en/0/04/Catwoman_poster.jpg" alt="Catwoman">
+			<div class="movie-title">Catwoman</div>
+			<div class="movie-rating">Rated 3.4 on IMDb</div>
+		</div>
+		<div class="movie">
+			<img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Battlefield_earth_poster.jpg/220px-Battlefield_earth_poster.jpg" alt="Battlefield Earth">
+			<div class="movie-title">Battlefield Earth</div>
+			<div class="movie-rating">Rated 2.5 on IMDb</div>
+		</div>
+		<div class="movie">
+			<img src="https://m.media-amazon.com/images/M/MV5BMGQ5YTM1NmMtYmIxYy00N2VmLWJhZTYtN2EwYTY3MWFhOTczXkEyXkFqcGdeQXVyNTA2NTI0MTY@._V1_.jpg" alt="Batman & Robin">
+			<div class="movie-title">Batman & Robin</div>
+			<div class="movie-rating">Rated 3.7 on IMDb</div>
+		</div>
+		<div class="movie">
+			<img src="https://m.media-amazon.com/images/M/MV5BMTM1NjE0NDA0MV5BMl5BanBnXkFtZTcwODE4NDg1Mw@@._V1_.jpg" alt="The Last Airbender">
+			<div class="movie-title">The Last Airbender</div>
+			<div class="movie-rating">Rated 4.1 on IMDb</div>
+		</div>
+		<div class="movie">
+			<img src="https://upload.wikimedia.org/wikipedia/en/d/df/Gigliposter.jpg" alt="Gigli">
+			<div class="movie-title">Gigli</div>
+			<div class="movie-rating">Rated 2.3 on IMDb</div>
+		</div>
+		<div class="movie">
+			<img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/94/SMB_Movie_Poster.jpg/220px-SMB_Movie_Poster.jpg" alt="Super Mario Bros.">
+			<div class="movie-title">Super Mario Bros.</div>
+			<div class="movie-rating">Rated 4.0 on IMDb</div>
+		</div>
+        <div class="movie">
+            <img src="https://upload.wikimedia.org/wikipedia/en/6/6b/Green_Lantern_poster.jpg" alt="Green Lantern">
+            <div class="movie-title">Green Lantern</div>
+            <div class="movie-rating">Rated 5.5 on IMDb</div>
+        </div>
+        <div class="movie">
+            <img src="https://canvas.tubitv.com/5f0cf628-6d91-4cfc-bc69-cd595ccf4155/4lThKi?w=408&h=583" alt="The Hottie and the Nottie">
+            <div class="movie-title">The Hottie and the Nottie</div>
+            <div class="movie-rating">Rated 1.9 on IMDb</div>
+        </div>
+        <div class="movie">
+            <img src="https://upload.wikimedia.org/wikipedia/en/8/8f/Love_guru.jpg" alt="The Love Guru">
+            <div class="movie-title">The Love Guru</div>
+            <div class="movie-rating">Rated 3.8 on IMDb</div>
+        </div>
+        <div class="movie">
+            <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Mortal_kombat_annihilation.jpg" alt="Mortal Kombat: Annihilation">
+            <div class="movie-title">Mortal Kombat: Annihilation</div>
+            <div class="movie-rating">Rated 3.7 on IMDb</div>
+        </div>
+    </div>
+</body>
+</html>    

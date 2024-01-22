@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Movie</title>
+    <script src="https://kit.fontawesome.com/20c5629a29.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="2.css">
+    <script>
+		// Top 10 IMDB Rated Movies
+		let topMovies = [
+            { title: 'Baahubali: The Beginning', rating: 8.1 },
+            { title: 'Arjun Reddy', rating: 8.1 },
+            { title: 'KGF Chapter 1', rating: 8.2 },
+            { title: 'Jersey', rating: 8.5 },
+            { title: 'Baahubali: The Conclusion', rating: 8.2 },
+            { title: 'Maharshi', rating: 7.4 },
+            { title: 'Srimanthudu', rating: 7.6 },
+            { title: 'Rangasthalam', rating: 8.3 },
+            { title: 'Geetha Govindam', rating: 7.7 },
+            { title: 'Ala Vaikunthapurramloo', rating: 7.6 }
+
+		];
+
+		// Low 10 IMDB Rated Movies
+		let lowMovies = [
+			{title: 'Disaster Movie', rating: 1.9},
+			{title: 'Code Name: K.O.Z.', rating: 1.9},
+			{title: 'Birdemic: Shock and Terror', rating: 1.8},
+			{title: 'Going Overboard', rating: 1.8},
+			{title: 'Kod Adi K.O.Z.', rating: 1.7},
+			{title: 'Manos: The Hands of Fate', rating: 1.7},
+			{title: 'Saving Christmas', rating: 1.5},
+			{title: 'Superbabies: Baby Geniuses 2', rating: 1.5},
+			{title: 'The Room', rating: 1.4},
+			{title: 'Pledge This!', rating: 1.3},
+		];
+
+		// Display top and low movies on page load
+		displayMovies(topMovies, 'topMoviesList');
+		displayMovies(lowMovies, 'lowMoviesList');
+
+		// Function to search for a movie
+		function searchMovies() {
+			let input = document.getElementById('searchInput').value;
+			let searchResult = findMovie(topMovies, input);
+
+			if (searchResult == null) {
+				searchResult = findMovie(lowMovies, input);
+			}
+
+			if (searchResult == null) {
+				alert('Sorry, we couldn\'t find a movie with that title!');
+			} else {
+				alert('The rating for ' + searchResult.title + ' is ' + searchResult.rating);
+			}
+		}
+
+		// Function to display movies in a list
+		function displayMovies(movies, listId) {
+			let list = document.getElementById(listId);
+			list.innerHTML = '';
+		for (let i = 0; i < movies.length; i++) {
+			let movie = movies[i];
+			let listItem = document.createElement('li');
+			listItem.innerHTML = movie.title + ' - ' + movie.rating;
+			list.appendChild(listItem);
+		}
+	}
+
+	// Function to find a movie in the list by title
+	function findMovie(movies, title) {
+		for (let i = 0; i < movies.length; i++) {
+			let movie = movies[i];
+			if (movie.title.toLowerCase() === title.toLowerCase()) {
+				return movie;
+			}
+		}
+		return null;
+	}
+</script>
+</head>
+<style>
+    body {
+        background-color:rgb(221, 135, 178) ;
+    }
+</style>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top navbar-css">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://th.bing.com/th/id/OIP.xszUFTTYms6Nig2nchYm4QAAAA?pid=ImgDet&rs=1" class="food-munch-logo" width="200" height="100" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link active" id="navItem1" href="#wcuSection">
+                        Welcome
+                       
+                    </a>
+                    <a class="nav-link" href="https://editorial.rottentomatoes.com/guide/popular-movies/" id="navItem2"> HIGH RATED MOVIES</a>
+                 
+                    <a class="nav-link" href="https://so.city/delhi/article/12-lowest-rated-movies-by-imdb-that-are-available-online-incase-youre-curious" id="navItem3">LOW RATED MOVIES</a>
+                    <a class="nav-link" href="signup.html" id="navItem2">sign up</a>
+</body>
+</html>
+		</main>
+                    
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- <div class="bg-section">
+        <img src="images/designpic.webp" alt="" width="1200px" height="450px">
+    </div> -->
+
+    <div id="carouselExampleCaptions" class="carousel slide carousel-css" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">    
+                <img src="https://th.bing.com/th/id/OIP.si1x2xXdy9NxJBgKvsEQ7AHaFj?w=204&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="d-block w-100" alt="..." width="100" height="550">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Welcome to Movie hall</h3>
+                    <p>We perform a variety of Movies..</p>
+                </div>
+            </div>
+            
+            <div class="carousel-item">
+                <img src="https://th.bing.com/th/id/OIP.tcvlGxhWnDVNtj4xzVjYQAHaEK?w=317&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="d-block w-100" alt="..." width="120" height="550">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Movies</h3>
+                    <p>The Safe and carefully in movie hall.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://d3m2ca683sarz5.cloudfront.net/wp-content/uploads/2021/02/25152116/116.png" class="d-block w-100" alt="..." width="40" height="550">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>Rated movies</h3>
+                    <p>An End-to-End Rated Movies and execution movies.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-target="#carouselExampleCaptions" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </button>
+    </div>
+    <div class="gap"></div>
+    <div>
+ <div class="wrapper">
+        <div>
+            <div class="gap"></div>
+        <div>
+           </div>
+
+            <div class="field">
+                <label for="name">Movie Name:</label>
+                
+                <input type="text" id="searchInput">
+	            <button onclick="searchMovies()">Search</button>
+	            
+	            <br><br>
+            </div>
+        
+        </div>
+    </div>
+
+    <div class="wbusection" id="wbusection">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="wbu-heading">
+                        <h1>Welcome</h1>
+                        <p>This content classification system originally was to have three ratings, with the intention of allowing parents to take their children to any film they chose. However, the National Association of Theatre Owners urged the creation of an adults-only category, fearful of possible legal problems in local jurisdictions.</p>
+
+                    </div>
+                </div>
+                <div class="gap"></div>
+            <div>
+                <div class="col">
+                    <div class="image">
+                        <img src="https://e1.pxfuel.com/desktop-wallpaper/594/583/desktop-wallpaper-t20-cricket-world-cup-cricket-thumbnail.jpg" width="450px" height="350px">
+                    </div>
+                </div>
+                <div class="gap"></div>
+          <div>
+                <div class="col">
+                    <div class="text">
+                        <h1>
+                            Movie experience.
+                        </h1>
+                        <p>
+                            Movie ratings provide guidance about a movie's content and appropriateness for certain audiences.
+                             Ratings are assigned by official rating systems like the MPA in the US and the BBFC in the UK. 
+                             Higher ratings may indicate more mature themes or content, while lower ratings may be more family-friendly.                             
+                        <button class="custom-button" onclick="window.location.href =  'https://www.youtube.com/watch?v=x57PS7nU3_M' " target="_blank">Watch Video</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Movies" id="Blockbuster Movie">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="pa-section">Blockbuster Movies & Flop Movies</h1>
+                    <p class="pa-section-description">
+                        Movies that break records at the box office earn this title, but its original meaning is kind of sinister.
+                        Blockbuster movies are highly successful films that earn huge amounts of money at the box office due to their high budget, big-name stars,
+                         and extensive marketing campaigns.
+                </div>
+                <div class="gap"></div>
+          <div>
+                <div class="col">
+                    <div class="pc-section-types">
+                        <img src="https://www.johornow.com/wp-content/uploads/sites/2/2019/09/10-Blockbuster-Movies-to-be-Released-this-October-2019-768x384.jpg" width="350" height="250">
+                        <p>Blockbuster-Movie <a href="Blockbuster.html" class="pc-view">View all</a></p>
+                    </div>
+                
+                </div>
+                <div class="gap"></div>
+            <div>
+                <div class="col">
+                    <div class="pc-section-types">
+                        <img src="https://i.ytimg.com/vi/Qvxkm9i_RmY/maxresdefault.jpg" width="330" height="200">
+                        <p>Flop Movie <a href="Flop.html" class="pc-view">View all</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Movie" id="Movies">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="pa-section">Movies</h1>
+                    <p class="pa-section-description">
+                        Blockbuster movies are highly successful films that make a lot of money, while flop movies are unsuccessful and lose money.
+                    </p>
+                </div>
+                <div class="gap"></div>
+          <div>
+                <div class="col">
+                    <div class="image">
+                        <img src="https://prakashgowda.files.wordpress.com/2015/12/collage-2015.jpg?w=1024" width="530px" height="300px">
+                    </div>
+                </div>
+                <div class="gap"></div>
+                <div>
+                <div class="col">
+                    <div class="text">
+                        <h1>
+                            Watch Movies.
+                        </h1>
+                        <p>
+                            People generally like movies that entertain them through humor, action, drama, or romance, and that are well-made with interesting plots and memorable characters.
+                             Unique perspectives, exceptional acting or direction, and innovative storytelling can also make a movie popular.
+                        </p>
+                    </div>        
+                        <button class="Movies-btn" onclick="window.location.href = 'https://www.buzzfeed.com/in/tvandmovies/movies' " target="_blank">View all</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Movie experience" id="Movie experience">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="pa-section">Rated Movies</h1>
+                    <p class="pa-section-description">
+                        Some people would rather avoid the normal concession food. But if you’re bringing your own food be sure it’s something appropriate for the environment. Popcorn has a welcoming smell and isn’t too eat – an ideal theatre snack.
+                    </p>
+                </div>
+                <div class="gap"></div>
+            <div>
+                <div class="col">
+                    <div class="text">
+                        <h1>
+                            Blockbuster movies in 2022
+                        </h1>
+                        <p>  
+                            To get your film picked up for a traditional regional theatrical release, you will need a distribution deal. As mentioned, one way to find a deal is by entering film festivals.
+                            
+                        </p>
+                        <button class="Year-btn" onclick="window.location.href = 'https://www.boxofficemojo.com/year/world/2022/' " target="_blank">View All</button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="image">
+                        <img src="https://parade.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_700/MTkwNTgxMzYzNjM4ODA1NjI5/summer-movie-review-ftr.webp" width="530px" height="320px">
+                        
+                    </div>  
+                </div>
+         </div>
+      </div>
+    <br>
+
+</body>
+
+</html>
